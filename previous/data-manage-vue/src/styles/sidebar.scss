@@ -1,0 +1,131 @@
+#app {
+  // 主体区域
+  .main-container {
+    min-height: 100%;
+    transition: margin-left .28s;
+    margin-left: 180px;
+    position: relative;
+  }
+  // 侧边栏
+  .main-sidebar {
+    transition: width 0.28s;
+    width: 180px !important;
+    height: 100%;
+    position: fixed;
+    font-size: 0px;
+    overflow: hidden;
+    .horizontal-collapse-transition {
+      transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+    }
+    .scrollbar-wrapper {
+      overflow-x: hidden!important;
+      .el-scrollbar__view {
+        height: 100%;
+      }
+    }
+    .el-scrollbar__bar.is-vertical{
+      right: 0px;
+    }
+    .is-horizontal {
+      display: none;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+    }
+    .svg-icon {
+      margin-right: 16px;
+    }
+    .el-menu {
+      border: none;
+      height: 100%;
+      width: 100% !important;
+    }
+    .is-active > .el-submenu__title{
+        color: #000000!important;
+    }
+  }
+  .el-submenu__title:hover {
+    background-color: rgb(216, 218, 220)!important;
+  }
+  .hideSidebar {
+    .main-sidebar {
+      width: 36px !important;
+    }
+    .main-container {
+      margin-left: 36px;
+    }
+    .submenu-title-noDropdown {
+      padding-left: 10px !important;
+      position: relative;
+      .el-tooltip {
+        padding: 0 10px !important;
+      }
+    }
+    .el-submenu {
+      overflow: hidden;
+      &>.el-submenu__title {
+        padding-left: 10px !important;
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+      }
+    }
+    .el-menu--collapse {
+      .el-submenu {
+        &>.el-submenu__title {
+          &>span {
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            visibility: hidden;
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+  .main-sidebar .nest-menu .el-submenu>.el-submenu__title,
+  .main-sidebar .el-submenu .el-menu-item {
+    min-width: 180px !important;
+    background-color: $subMenuBg !important;
+    &:hover {
+      background-color: $menuHover !important;
+    }
+  }
+  .el-menu--collapse .el-menu .el-submenu {
+    min-width: 180px !important;
+  }
+
+  //适配移动端
+  .mobile {
+    .main-container {
+      margin-left: 0px;
+    }
+    .main-sidebar {
+      transition: transform .28s;
+      width: 180px !important;
+    }
+    &.hideSidebar {
+      .main-sidebar {
+        transition-duration: 0.3s;
+        transform: translate3d(-180px, 0, 0);
+      }
+    }
+  }
+  .withoutAnimation {
+    .main-container,
+    .main-sidebar {
+      transition: none;
+    }
+  }
+}
+
+.el-menu--vertical{
+  & >.el-menu{
+    .svg-icon{
+      margin-right: 16px;
+    }
+  }
+}
