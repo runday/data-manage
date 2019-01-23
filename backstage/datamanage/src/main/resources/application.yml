@@ -1,3 +1,3 @@
 spring:
   profiles:
-    active: prod5
+    active: prod6
